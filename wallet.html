@@ -16,17 +16,18 @@
 
 					<!-- summary -->
 					<div class="row justify-content-md-center">
-						<div class="col-12">
-							<h5>{{ port }}</h5>
-						</div>
-						<div class="col-12 value">C$19,500.31</div>
-						<div class="col-12 second-value"><span class="glyphicon glyphicon-triangle-top"></span> +$8,700.86</div>
+						<a v-on:click="show = !show">						
+							<div class="col-12">
+								<h5>{{ port }}</h5>
+							</div>
+							<div class="col-12 value">C$19,500.31</div>
+							<div class="col-12 second-value"><span class="glyphicon glyphicon-triangle-top"></span> +$8,700.86</div>
+						</a>
 					</div>
 				</header>
 
-				<div class="row" id="details">
-					<div class="col-12 each-detail"></div>
-					{{returnWallets()}}
+				<div class="row" id="details" v-if="show">
+					<div class="col-12 each-detail">DETAILS</div>					
 				</div>
 
 			</div>

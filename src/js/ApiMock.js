@@ -48,7 +48,8 @@ let symetria = new Vue({
 	data: {
 		title: 'Your Portifolio',
 		port: 'Portifolio Value',
-		ExchangeRatesToCAD: []
+		ExchangeRatesToCAD: [],
+		show: false
 	},
 	created() {
 		this.GetWallets().then(function(value){
