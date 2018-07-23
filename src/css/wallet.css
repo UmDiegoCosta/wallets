@@ -1,0 +1,23 @@
+/* general */
+body {
+	background: #82c5a0;
+}
+
+[v-cloak] {
+	display: none;
+}
+
+/* structure */
+.container {
+	margin-top: 10px;
+}
+
+/* misc */
+.bg-1 {
+	background: #fff;
+	padding-right: 2px;
+}
+.bg-2 {
+	background: #000;
+	color: white;
+}

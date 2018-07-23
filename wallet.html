@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>Symetria</title>
+	<link rel="stylesheet" href="src/css/bootstrap.min.css">
+	<link rel="stylesheet" href="src/css/wallet.css">
+</head>
+<body>
+	<div id="wallet" class="container">
+		<div class="row justify-content-md-center">
+			<div class="col-8 bg-1">
+				<header>
+					<h2>{{ title }}</h2>
+
+					<!-- summary -->
+					<div class="row justify-content-md-center">
+						<div class="col-12">
+							<h5>{{ port }}</h5>
+						</div>
+						<div class="col-12 value">C$19,500.31</div>
+						<div class="col-12 second-value"><span class="glyphicon glyphicon-triangle-top"></span> +$8,700.86</div>
+					</div>
+				</header>
+
+				<div class="row" id="details">
+					<div class="col-12 each-detail"></div>
+					{{returnWallets()}}
+				</div>
+
+			</div>
+			<div class="col-4 bg-2">
+				SIDEBar
+			</div>
+		</div>
+	</div>
+	<script src="https://unpkg.com/vue@2.5.16/dist/vue.js"></script>
+	<script src="src/js/ApiMock.js"></script>
+</body>
+</html>
