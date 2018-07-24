@@ -10,13 +10,13 @@
 <body>
 	<div id="wallet" class="container">
 		<div class="row justify-content-md-center">
-			<div class="col-8 bg-1">
+			<div class="col-8 bg-main">
 				<header>
 					<h2>{{ title }}</h2>
 
 					<!-- summary -->
 					<div class="row justify-content-md-center">
-						<a v-on:click="show = !show">						
+						<a v-on:click.once="show = !show">						
 							<div class="col-12">
 								<h5>{{ port }}</h5>
 							</div>
@@ -26,12 +26,37 @@
 					</div>
 				</header>
 
-				<div class="row" id="details" v-if="show">
-					<div class="col-12 each-detail">DETAILS</div>					
-				</div>
+				<transition name="fade">
+					<div  id="details" v-if="show">
+						<div v-for="wallet in exchangeWallet" class="row each-detail">
+							<div class="col-1">
+								<span class="each-icon" v-bind:class="wallet.currency"></span>
+							</div>
+							<div class="col-7">
+								<div class="row">
+									<strong>{{ wallet.currency }}</strong>
+								</div>
+								<div class="row">
+									<strong>{{ wallet.amount }} {{ wallet.currency }}</strong>
+								</div>
+							</div>
+							<div class="col4">
+								<div class="row">
+									<strong>+C$1,000.77</strong>
+								</div>
+								<div class="row">
+									<small>C$10,000.10</small>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+								{{convertCurrency ()}}
+						</div>
+					</div>
+				</transition>
 
 			</div>
-			<div class="col-4 bg-2">
+			<div class="col-4 bg-side">
 				SIDEBar
 			</div>
 		</div>

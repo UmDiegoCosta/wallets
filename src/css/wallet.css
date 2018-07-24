@@ -12,12 +12,39 @@ body {
 	margin-top: 10px;
 }
 
-/* misc */
-.bg-1 {
-	background: #fff;
-	padding-right: 2px;
+/* svg */
+.each-icon {
+	display: block;
+	text-indent: -9999px;
+	width: 40px;
+	height: 40px;	
 }
-.bg-2 {
+.BTC {
+	background: url(../svg/btc.svg);	
+	background-size: 40px 40px;
+}
+.ETH {
+	background: url(../svg/eth.svg);	
+	background-size: 40px 40px;
+}
+.LTC {
+	background: url(../svg/ltc.svg);	
+	background-size: 40px 40px;
+}
+.XMR {
+	background: url(../svg/xmr.svg);	
+	background-size: 40px 40px;
+}
+
+/* misc */
+.bg-main {
+	background: #fff;
+}
+.bg-side {
 	background: #000;
 	color: white;
 }
+
+/*  */
+.fade-enter-active, .fade-leave-active { transition: opacity .5s; }
+.fade-enter, .fade-leave-to { opacity: 0; }
