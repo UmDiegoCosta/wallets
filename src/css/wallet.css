@@ -1,12 +1,11 @@
 /* general */
 body {
 	background: #82c5a0;
+	font-size: 0.9rem;
 }
 
 /* structure */
-.container {
-	margin-top: 10px;
-}
+.container { margin-top: 10px; }
 
 header.col-12 {
 	padding: 0;
@@ -47,24 +46,22 @@ h5 {
 	color: #000;
 }
 
-#details {
-	padding: 0 10px 20px;
-}
+#details { padding: 0 10px 20px; }
 
 .each-detail {
 	border: 1px solid #ebebeb;
 	margin: 5px 0;
 	
 }
-.each-detail .fluct {
-	text-align: right;
-}
+.each-detail .fluct { text-align: right; }
 @media (max-width: 576px) {
 	.each-detail .fluct {
 		text-align: left;
 		padding-left: 52px;
 	}	
 }
+
+.error { padding-bottom: 1px; }
 
 /* svg */
 .each-icon {
@@ -91,22 +88,15 @@ h5 {
 }
 
 /* misc */
-.bg-main {
-	background: #fff;
-}
+.bg-main { background: #fff; }
 .bg-side {
 	background: #000;
 	color: white;
 }
-.positive-value {
-	color: #39b54a;
-}
-.negative-value {
-	color: #ed1c70;
-}
-[v-cloak] {
-	display: none;
-}
+.positive-value { color: #39b54a; }
+.negative-value { color: #ed1c70; }
+[v-cloak] > * { display:none; }
+
 
 /*  */
 .fade-enter-active, .fade-leave-active { transition: opacity 1s; }

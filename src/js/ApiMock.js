@@ -9,7 +9,6 @@ Vue.filter('toCurrency', function (value) {
 
 let symetria = new Vue({
 	el: '#wallet',
-
 	data: {
 		title: 'Your Portifolio',
 		port: 'Portifolio Value',
@@ -23,46 +22,47 @@ let symetria = new Vue({
 		exchangeWallet: [],
 		currencyConverted: [],
 		show: false,
-		error: false
+		error: false,
+		errorMessage: ''
 	},
 
 	computed: {
-		portifolioTotal() {
+		portifolioTotal() { //calculate the total currency converted to CAD
 			let portTotal = this.exchangeWallet.reduce((prev, curr) => {
-				return prev + curr.total
-			}, 0)
+				return prev + curr.convertedToCad
+			}, 0)// starting value at 0
 			return portTotal
 			
 		},
-		fluctuationTotal() {
+		fluctuationTotal() { //calculate the total fluctuation of the currency
 			let flucTotal = this.exchangeWallet.reduce((prev, curr) => {
 				return prev + curr.changeToday
-			}, 0)
-
+			}, 0)// starting value at 0
 			return flucTotal
 		}
 	},
 	
 	created() {
 		this.getWallets()
-			.then((wallets) => {
-				//criar um novo array com todos as wallets
-				let updatedWallet = wallets.map(eachWallet => {
+			.then((wallets) => { //return the resolve of promise
+				let updatedWallet = wallets.map(eachWallet => { //create a new array to hold all wallets  + converted rate
 					// vai quebrar cada exchange e pegar so o rate
-					let { rate } = this.exchangeRatesToCAD.find(exchange => exchange.currency === eachWallet.currency)
-					//calcula o total
-					let walletTotal = eachWallet.amount * rate
+					let { rate } = this.exchangeRatesToCAD.find(exchange => exchange.currency === eachWallet.currency) //find and get exchange rate
+					
+					let walletTotal = eachWallet.amount * rate //calculate the total converted
 
-					return {
-						//devolve um objeto novo com eachwallet + total, pra poder mostrar no for.
+					return { //return the new object with each wallet and total converted to CAD
 						...eachWallet,
-						total: walletTotal
+						convertedToCad: walletTotal
 					}
 				})
 
 				this.exchangeWallet = updatedWallet
 			})
-			.catch(err => this.error = err)
+			.catch(err => { //display the error msg if server not respond
+				this.error = true
+				this.errorMessage = err
+			})			
 	},
 	
 	methods: {
