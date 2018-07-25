@@ -10,52 +10,57 @@
 <body>
 	<div id="wallet" class="container">
 		<div class="row justify-content-md-center">
-			<div class="col-8 bg-main">
-				<header>
-					<h2>{{ title }}</h2>
+			<div class="col-8">
+				<div class="col-12 bg-main">
+					<div class="row">
+						<header class="col-12">
+						<h2 class="page-title">{{ title }}</h2>
 
-					<!-- summary -->
-					<div class="row justify-content-md-center">
-						<a v-on:click.once="show = !show">						
-							<div class="col-12">
-								<h5>{{ port }}</h5>
-							</div>
-							<div class="col-12 value">C$19,500.31</div>
-							<div class="col-12 second-value"><span class="glyphicon glyphicon-triangle-top"></span> +$8,700.86</div>
-						</a>
+						<!-- summary -->
+						<div class="row justify-content-md-center">
+							<a href="#" class="show-details" v-on:click.once="show = !show">						
+								<div class="col-12">
+									<h5>{{ port }}</h5>
+								</div>
+								<div class="col-12 value">{{ portifolioTotal | toCurrency }}</div>
+								<div class="col-12 second-value" v-bind:class="{'positive-value': fluctuationTotal >= '0'}"><strong><span class="glyphicon glyphicon-triangle-bottom"></span> {{fluctuationTotal | toCurrency}}</strong></div>
+							</a>
+						</div>
+						</header>
 					</div>
-				</header>
 
-				<transition name="fade">
-					<div  id="details" v-if="show">
-						<div v-for="wallet in exchangeWallet" class="row each-detail">
-							<div class="col-1">
-								<span class="each-icon" v-bind:class="wallet.currency"></span>
-							</div>
-							<div class="col-7">
-								<div class="row">
-									<strong>{{ wallet.currency }}</strong>
+					<transition name="fade">
+						<div  id="details" class="row" v-if="show">
+							<div v-for="wallet in exchangeWallet" class="col-12 each-detail">
+								<div class="row align-items-center">
+									<div class="col-2 col-sm-2 col-xl-1">
+										<span class="each-icon" v-bind:class="wallet.currency"></span>
+									</div>
+									<div class="col-10 col-sm-6 col-xl-6">
+										<div class="row">
+											<strong>{{ wallet.currency }}</strong>
+										</div>
+										<div class="row">
+											<strong>{{ wallet.amount }} {{ wallet.currency }}</strong> / {{wallet.total | toCurrency}}
+										</div>
+									</div>
+									<div class="fluct col-12 col-sm-4 col-xl-5">
+										<div>
+											<strong v-bind:class="{'positive-value': wallet.changeToday >= '0'}">{{ wallet.changeToday | toCurrency }}</strong>
+										</div>
+										<div>
+											<small>{{wallet.total | toCurrency}}</small>
+										</div>
+									</div>
 								</div>
 								<div class="row">
-									<strong>{{ wallet.amount }} {{ wallet.currency }}</strong>
-								</div>
-							</div>
-							<div class="col4">
-								<div class="row">
-									<strong>+C$1,000.77</strong>
-								</div>
-								<div class="row">
-									<small>C$10,000.10</small>
 								</div>
 							</div>
 						</div>
-						<div class="row">
-								{{convertCurrency ()}}
-						</div>
-					</div>
-				</transition>
-
+					</transition>
+				</div>
 			</div>
+
 			<div class="col-4 bg-side">
 				SIDEBar
 			</div>

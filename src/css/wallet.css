@@ -3,37 +3,91 @@ body {
 	background: #82c5a0;
 }
 
-[v-cloak] {
-	display: none;
-}
-
 /* structure */
 .container {
 	margin-top: 10px;
+}
+
+header.col-12 {
+	padding: 0;
+	border-bottom: 1px solid #ebebeb;
+	box-shadow: 0px 1px 5px #ebebeb;
+	margin-bottom: 10px;
+}
+
+.page-title {
+	border-top: 8px solid #000;
+    border-bottom: 1px solid #ebebeb;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 10px;
+}
+
+h5 {
+	text-transform: uppercase;
+	color: #6f5d63;
+	font-size: 12px;
+	margin: 0;
+}
+
+.value {
+	font-weight: bold;
+	font-size: 30px;
+}
+
+.show-details {
+	width: 100%;
+    display: block;
+    margin: 0 15px;
+	text-align: center;
+	color: #000;
+}
+.show-details:hover {
+	text-decoration: none;
+	color: #000;
+}
+
+#details {
+	padding: 0 10px 20px;
+}
+
+.each-detail {
+	border: 1px solid #ebebeb;
+	margin: 5px 0;
+	
+}
+.each-detail .fluct {
+	text-align: right;
+}
+@media (max-width: 576px) {
+	.each-detail .fluct {
+		text-align: left;
+		padding-left: 52px;
+	}	
 }
 
 /* svg */
 .each-icon {
 	display: block;
 	text-indent: -9999px;
-	width: 40px;
-	height: 40px;	
+	width: 30px;
+	height: 30px;	
 }
 .BTC {
 	background: url(../svg/btc.svg);	
-	background-size: 40px 40px;
+	background-size: 30px 30px;
 }
 .ETH {
 	background: url(../svg/eth.svg);	
-	background-size: 40px 40px;
+	background-size: 30px 30px;
 }
 .LTC {
 	background: url(../svg/ltc.svg);	
-	background-size: 40px 40px;
+	background-size: 30px 30px;
 }
 .XMR {
 	background: url(../svg/xmr.svg);	
-	background-size: 40px 40px;
+	background-size: 30px 30px;
 }
 
 /* misc */
@@ -44,7 +98,16 @@ body {
 	background: #000;
 	color: white;
 }
+.positive-value {
+	color: #39b54a;
+}
+.negative-value {
+	color: #ed1c70;
+}
+[v-cloak] {
+	display: none;
+}
 
 /*  */
-.fade-enter-active, .fade-leave-active { transition: opacity .5s; }
+.fade-enter-active, .fade-leave-active { transition: opacity 1s; }
 .fade-enter, .fade-leave-to { opacity: 0; }
