@@ -23,7 +23,7 @@
 									<h5>{{ port }}</h5>
 								</div>
 								<div class="col-12 value">{{ portifolioTotal | toCurrency }}</div>
-								<div class="col-12 second-value" v-bind:class="{'positive-value': fluctuationTotal >= '0'}"><strong><span class="glyphicon glyphicon-triangle-bottom"></span> {{fluctuationTotal | toCurrency}}</strong></div>
+								<div class="col-12 second-value fluctuation" v-bind:class="{'positive-value': fluctuationTotal >= '0'}"><strong><span class="glyphicon glyphicon-triangle-bottom"></span> {{fluctuationTotal | toCurrency}}</strong></div>
 							</a>
 						</div>
 						</header>
@@ -54,7 +54,7 @@
 									</div>
 									<div class="fluct col-12 col-sm-4 col-xl-5">
 										<div>
-											<strong v-bind:class="{'positive-value': wallet.changeToday >= '0'}">{{ wallet.changeToday | toCurrency }}</strong>
+											<strong class="fluctuation" v-bind:class="{'positive-value': wallet.changeToday >= '0'}">{{ wallet.changeToday | toCurrency }}</strong>
 										</div>
 										<div>
 											<span>{{wallet.convertedToCad | toCurrency}}</span>
